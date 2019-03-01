@@ -310,31 +310,31 @@ struct EthernetCommConfig
   unsigned short robotPort;
   unsigned long  rxTimeOutInMs;
 };
-extern "C" __attribute__ ((visibility ("default"))) int GetDeviceCount(int &result);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_GetDeviceCount(int &result);
 
-extern "C" __attribute__ ((visibility ("default"))) int InitCommunication(void);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_InitCommunication(void);
 
-extern "C" __attribute__ ((visibility ("default"))) int InitCommunicationEthernet(EthernetCommConfig & config);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_InitCommunicationEthernet(EthernetCommConfig & config);
 
-extern "C" __attribute__ ((visibility ("default"))) int CloseCommunication(void);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_CloseCommunication(void);
 
 
 
-extern "C" __attribute__ ((visibility ("default"))) Packet SendPacket(Packet &packetOut, Packet &packetIn, int &result);
+extern "C" __attribute__ ((visibility ("default"))) Packet Ethernet_Communication_SendPacket(Packet &packetOut, Packet &packetIn, int &result);
 
-extern "C" __attribute__ ((visibility ("default"))) int SendPacketList(std::vector<Packet> & listPacket, int &result);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_SendPacketList(std::vector<Packet> & listPacket, int &result);
 
-extern "C" __attribute__ ((visibility ("default"))) Packet BroadcastSendPacket(Packet &dataOut, std::vector<Packet> &dataIn, int &result, std::vector<unsigned long> &ipAddresses, int &count);
+extern "C" __attribute__ ((visibility ("default"))) Packet Ethernet_Communication_BroadcastSendPacket(Packet &dataOut, std::vector<Packet> &dataIn, int &result, std::vector<unsigned long> &ipAddresses, int &count);
 
-extern "C" __attribute__ ((visibility ("default"))) int InitDataStructures();
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_InitDataStructures();
 
-extern "C" __attribute__ ((visibility ("default"))) int ScanForNewDevice();
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_ScanForNewDevice();
 
-extern "C" __attribute__ ((visibility ("default"))) int GetDevices(KinovaDevice list[MAX_KINOVA_DEVICE], int &result);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_GetDevices(KinovaDevice list[MAX_KINOVA_DEVICE], int &result);
 
-extern "C" __attribute__ ((visibility ("default"))) int SetActiveDevice(KinovaDevice device);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_SetActiveDevice(KinovaDevice device,  unsigned long IpAddress);
 
-extern "C" __attribute__ ((visibility ("default"))) int GetActiveDevice(KinovaDevice &device);
+extern "C" __attribute__ ((visibility ("default"))) int Ethernet_Communication_GetActiveDevice(KinovaDevice &device);
 
 
 
@@ -346,10 +346,10 @@ The data will be sent via the USB port and then transfered on the RS-485 bus. In
 and the OpenRS485_Write function, you need to call the OpenRS485_Activate function. Once the OpenRS485_Activate is called
 you cannot used the joystick anymore and the normal USB API(functions above) will not be accessible.
 */
-extern "C" __attribute__ ((visibility ("default")))  int OpenRS485_Read(RS485_Message PackagesIn[50], int QuantityWanted, int &ReceivedQtyIn);
+extern "C" __attribute__ ((visibility ("default")))  int Ethernet_Communication_OpenRS485_Read(RS485_Message PackagesIn[50], int QuantityWanted, int &ReceivedQtyIn);
 
-extern "C" __attribute__ ((visibility ("default")))  int OpenRS485_Write(RS485_Message PackagesOut[50], int QtyToSend, int &QtySent);
+extern "C" __attribute__ ((visibility ("default")))  int Ethernet_Communication_OpenRS485_Write(RS485_Message PackagesOut[50], int QtyToSend, int &QtySent);
 
-extern "C" __attribute__ ((visibility ("default")))  int OpenRS485_Activate(void);
+extern "C" __attribute__ ((visibility ("default")))  int Ethernet_Communication_OpenRS485_Activate(void);
 
 #endif

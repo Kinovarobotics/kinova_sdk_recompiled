@@ -204,6 +204,10 @@ extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_ActivateSingularityAutomati
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_ActivateAutoNullSpaceMotionCartesian(int state); //not available on Jaco, Jaco Spherical 6 DOF and Mico models.
 
+extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_SetControllerMuting(Controller controller, bool state);
+
+extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_GetControllerMuting(Controller controller, bool &state);
+
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_StartCurrentLimitation();
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_StopCurrentLimitation();
@@ -283,6 +287,8 @@ extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_GetPeripheralInventory(Peri
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_SetModel(char Command[STRING_LENGTH], char temp[STRING_LENGTH]);
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_GetJoystickValue(JoystickCommand &joystickCommand);
+
+extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_GetJoystickValueSpecific(Controller controller, JoystickCommand &joystickCommand);
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int Ethernet_SetRobotConfiguration(int ConfigID);
 

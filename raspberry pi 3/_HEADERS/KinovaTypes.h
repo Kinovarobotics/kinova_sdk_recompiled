@@ -2502,6 +2502,66 @@ struct GeneralInformations
 	 * Not used for now
 	 */
 	unsigned char ExpansionsBytes[192];
+
+	void InitStruct()
+	{
+		TimeAbsolute = 0.0;
+		TimeFromStartup = 0.0;
+		IndexStartup = 0;
+		ExpansionLong1 = 0;
+		TimeStampSavings = 0.0;
+		ExpansionFloat = 0.0;
+		SupplyVoltage = 0.0;
+		TotalCurrent = 0.0;
+		Power = 0.0;
+		AveragePower = 0.0;
+		AccelerationX = 0.0;
+		AccelerationY = 0.0;
+		AccelerationZ = 0.0;
+		SensorExpansion1 = 0.0;
+		SensorExpansion2 = 0.0;
+		SensorExpansion3 = 0.0;
+		CodeVersion = 0;
+		CodeRevision = 0;
+		Status = 0;
+		Controller = 0;
+		ControlMode = 0;
+		HandMode = 0;
+		ConnectedActuatorCount = 0;
+		PositionType = 0;
+		ErrorsSpiExpansion1 = 0;
+		ErrorsSpiExpansion2 = 0;
+		ErrorsMainSPICount = 0;
+		ErrorsExternalSPICount = 0;
+		ErrorsMainCANCount = 0;
+		ErrorsExternalCANCount = 0;
+		Position.InitStruct();
+		Command.InitStruct();
+		Current.InitStruct();
+		Force.InitStruct();
+		for (int i = 0; i < 3; i++)
+		{
+			FingerControlIncrement[i] = 0.0;
+			FingersTemperatures[i] = 0.0;
+			FutureTemperatures[i] = 0.0;
+			FingersCommErrors[i] = 0;
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			PeripheralsConnected[i] = 0;
+			PeripheralsDeviceID[i] = 0;
+		}
+		for (int i = 0; i < MAXACTUATORNUMBER; i++)
+		{
+			ControlIncrement[i] = 0.0;
+			ActuatorsTemperatures[i] = 0.0;
+			ActuatorsCommErrors[i] = 0;
+		}
+		ActualJoystickCommand.InitStruct();
+		ExpansionLong2 = 0;
+		ControlTimeAbsolute = 0.0;
+		ControlTimeFromStartup = 0.0;
+	}
 };
 
 /** @brief This data structure holds acceleration values(X, Y, Z) in an angular(joint by joint) control context.

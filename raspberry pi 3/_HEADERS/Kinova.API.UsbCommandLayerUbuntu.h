@@ -204,6 +204,10 @@ extern "C" KINOVAAPIUSBCOMMANDLAYER_API int ActivateSingularityAutomaticAvoidanc
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int ActivateAutoNullSpaceMotionCartesian(int state);
 
+extern "C" KINOVAAPIUSBCOMMANDLAYER_API int SetControllerMuting(Controller controller, bool state);
+
+extern "C" KINOVAAPIUSBCOMMANDLAYER_API int GetControllerMuting(Controller controller, bool &state);
+
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int StartCurrentLimitation();
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int StopCurrentLimitation();
@@ -283,6 +287,8 @@ extern "C" KINOVAAPIUSBCOMMANDLAYER_API int GetPeripheralInventory(PeripheralInf
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int SetModel(char Command[STRING_LENGTH], char temp[STRING_LENGTH]);
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int GetJoystickValue(JoystickCommand &joystickCommand);
+
+extern "C" KINOVAAPIUSBCOMMANDLAYER_API int GetJoystickValueSpecific(Controller controller, JoystickCommand &joystickCommand);
 
 extern "C" KINOVAAPIUSBCOMMANDLAYER_API int SetRobotConfiguration(int ConfigID);
 
